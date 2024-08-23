@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설문조사 폼</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'survey/styles.css' %}">
+    
+</head>
+<body>
+
+    {% if form.email.errors %}
+    <script>
+        alert("이미 이 이메일로 설문이 제출되었습니다.");
+    </script>
+    {% endif %}
+
+    <div class="container {% if request.session.step == 1 %}first-page{% endif %}">
+        <img src="{% static 'survey/docker-logo.png' %}" alt="Docker Logo" class="docker-logo">
+        <h1>Docker 비즈니스 플랜 (Windows OS) 설문</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            {% if request.session.step == 1 %}
+                <!-- Step 1: 기본 정보 입력 폼 -->
+                <div class="question">
+                    <label for="id_name">이름:</label>
+                    {{ form.name }}
+                </div>
+
+                <div class="question">
+                    <label for="id_position">직위:</label>
+                    {{ form.position }}
+                </div>
+
+                <div class="question">
+                    <label for="id_title">직책:</label>
+                    {{ form.title }}
+                </div>
+
+                <div class="question">
+                    <label for="id_phone_number">전화번호:</label>
+                    {{ form.phone_number }}
+                </div>
+
+                <div class="question">
+                    <label for="id_email">이메일:</label>
+                    {{ form.email }}
+                </div>
+            {% elif request.session.step == 2 %}
+                <!-- Step 2: 질문 폼 -->
+                <fieldset>
+                    <legend>High</legend>
+                    <div class="question">
+                        <img src="{% static 'survey/image1.png' %}" alt="관련 이미지" class="question-image">
+                        {{ form.question_1.label_tag }} {{ form.question_1 }}
+                    </div>
+                    <div class="question">
+                        <img src="{% static 'survey/image2.png' %}" alt="관련 이미지" class="question-image">
+                        {{ form.question_2.label_tag }} {{ form.question_2 }}
+                    </div>
+                    <div class="question">
+                        <img src="{% static 'survey/image3.png' %}" alt="관련 이미지" class="question-image">
+                        {{ form.question_3.label_tag }} {{ form.question_3 }}
+                    </div>
+                    <div class="question">
+                        <img src="{% static 'survey/image4.png' %}" alt="관련 이미지" class="question-image">
+                        {{ form.question_4.label_tag }} {{ form.question_4 }}
+                    </div>
+                    <div class="question">
+                        <img src="{% static 'survey/image5.png' %}" alt="관련 이미지" class="question-image">
+                        {{ form.question_5.label_tag }} {{ form.question_5 }}
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Medium</legend>    
+                    <div class="question">
+                        <img src="{% static 'survey/image6.png' %}" alt="관련 이미지" class="question-image">
+                        {{ form.question_6.label_tag }} {{ form.question_6 }}
+                    </div>
+                    <div class="question">
+                        <img src="{% static 'survey/image7.png' %}" alt="관련 이미지" class="question-image">
+                        {{ form.question_7.label_tag }} {{ form.question_7 }}
+                    </div>
+                    <div class="question">
+                        <img src="{% static 'survey/image8.png' %}" alt="관련 이미지" class="question-image">
+                        {{ form.question_8.label_tag }} {{ form.question_8 }}
+                    </div>
+                    <div class="question">
+                        <img src="{% static 'survey/image9.png' %}" alt="관련 이미지" class="question-image">
+                        {{ form.question_9.label_tag }} {{ form.question_9 }}
+                    </div>
+                    <div class="question">
+                        <img src="{% static 'survey/image10.png' %}" alt="관련 이미지" class="question-image">
+                        {{ form.question_10.label_tag }} {{ form.question_10 }}
+                    </div>
+                    <div class="question">
+                        <img src="{% static 'survey/image11.png' %}" alt="관련 이미지" class="question-image">
+                        {{ form.question_11.label_tag }} {{ form.question_11 }}
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Low</legend>
+                    <div class="question">
+                        <img src="{% static 'survey/image12.png' %}" alt="관련 이미지" class="question-image">
+                        {{ form.question_12.label_tag }} {{ form.question_12 }}
+                    </div>
+                    <div class="question">
+                        <img src="{% static 'survey/image13.png' %}" alt="관련 이미지" class="question-image">
+                        {{ form.question_13.label_tag }} {{ form.question_13 }}
+                    </div>
+                </fieldset>
+            {% endif %}
+
+            <button type="submit">다음</button>
+        </form>
+    </div>
+</body>
+</html>

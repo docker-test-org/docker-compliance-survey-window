@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 계정 생성</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'survey/create_admin.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>관리자 계정 생성</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_username">사용자 이름:</label>
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                <label for="id_password">비밀번호:</label>
+                {{ form.password }}
+            </div>
+            <button type="submit">계정 생성</button>
+        </form>
+    </div>
+</body>
+</html>

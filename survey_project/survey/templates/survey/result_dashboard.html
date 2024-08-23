@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'survey/result_dashboard.css' %}">
+</head>
+<body>
+    <!-- Docker 이미지 추가 -->
+    <img src="{% static 'survey/docker-logo-2.jpg' %}" alt="Docker Logo" class="docker-logo">
+
+    <div class="form-container">
+        <h1>관리자 대시보드</h1>
+        <!-- 폼 내용 -->
+        {% if request.session.admin_user_id %}
+        <!-- 다운로드 링크 -->
+        <a href="{% url 'download_excel' %}" class="btn-download">설문 응답 다운로드</a>
+        <a href="{% url 'download_json' %}" class="btn-download">설문 응답 JSON 다운로드</a>
+        {% else %}
+        <p>응답을 다운로드하려면 로그인해야 합니다.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+body {
+    background-color: #2496ED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #0056b3; /* 버튼 배경색 */
+    color: white; /* 버튼 텍스트 색상 */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+button[type="submit"]:hover {
+    background-color: #004080; /* 호버 시 색상 */
+    color: white; /* 호버 시 텍스트 색상 */
+}
+
+a.btn-download {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0056b3; /* 버튼 배경색 */
+    color: white; /* 버튼 텍스트 색상 */
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+a.btn-download:hover {
+    background-color: #004080; /* 호버 시 색상 */
+}
+
+/* Docker 이미지 추가 */
+.docker-logo {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100px; /* 이미지 최대 너비 설정 */
+    max-height: 100px; /* 이미지 최대 높이 설정 */
+    width: 100px; /* 명시적인 너비 설정 */
+    height: auto; /* 높이를 자동으로 설정하여 비율 유지 */
+    z-index: 1;
+    opacity: 0.8;
+    object-fit: contain;
+}
