@@ -36,6 +36,7 @@ services:
 
   web:
     image: tangunsoftpartner/docker-compliance-survey-window:<release-version>
+    user: deamon
     command: >
       bash -c "
       python manage.py wait_for_db &&
